@@ -23,14 +23,16 @@ public class StudentService {
         List<StudentDTO> students = studentMapper.toDTO(studentRepository.findByName(name));
         return students;
     }
+    public List<StudentDTO> findByAddress(String city){
+        List<StudentDTO> students = studentMapper.toDTO(studentRepository.findByAddress(city));
+        return students;
+    }
     public void save(StudentDTO studentDTO){
         Student student=studentMapper.toEntity((studentDTO));
         studentRepository.save(student);
     }
-    public void saveListStudent(List<StudentDTO> studentDTO){
-//        studentDTO.forEach(studentDTO1 -> {
+    public void save(List<StudentDTO> studentDTO){
             List<Student> students =studentMapper.toEntity((studentDTO));
             studentRepository.saveAll(students);
-//        });
     }
 }

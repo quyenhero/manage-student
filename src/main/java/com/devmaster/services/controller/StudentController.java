@@ -22,11 +22,15 @@ public class StudentController {
         studentService.save(studentDTO);
     }
     @PostMapping("/students")
-    void saveListStudent(@RequestBody List<StudentDTO> studentDTO){
-        studentService.saveListStudent(studentDTO);
+    void save(@RequestBody List<StudentDTO> studentDTO){
+        studentService.save(studentDTO);
     }
     @GetMapping("/findByName")
-    List<StudentDTO> findByName(@RequestParam String name){
+    List<StudentDTO> findByName(@RequestParam("name")String name){
         return studentService.findByName(name);
+    }
+    @GetMapping("/findByAddress")
+    List<StudentDTO> findByAddress(@RequestParam("city")String city){
+        return studentService.findByAddress(city);
     }
 }

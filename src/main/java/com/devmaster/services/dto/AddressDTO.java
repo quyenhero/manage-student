@@ -6,15 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class StudentDTO {
+public class AddressDTO {
     private int id;
-    private String firstName;
-    private String lastName;
-    private String fullName;
-    private AddressDTO addressDTO;
+    private String name;
+    private String city;
+    private String district;
 }
