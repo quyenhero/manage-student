@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -24,4 +26,16 @@ public class Student {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_address")
     Address address;
+    @ManyToMany
+    @JoinTable(
+            name = "student_subject",
+            joinColumns = @JoinColumn(name = "id_student"),
+            inverseJoinColumns = @JoinColumn(name = "id_subject")
+    )
+    List<Subject> subjects =  new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_class")
+    Class aClass;
+
 }

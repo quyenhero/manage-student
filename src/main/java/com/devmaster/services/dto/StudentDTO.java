@@ -1,11 +1,12 @@
 package com.devmaster.services.dto;
 
+import com.devmaster.services.domain.Subject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,4 +18,6 @@ public class StudentDTO {
     private String lastName;
     private String fullName;
     private AddressDTO addressDTO;
+    private List<Subject> subjectsDTOs;
+    private ClassDTO  classDTO;
 }

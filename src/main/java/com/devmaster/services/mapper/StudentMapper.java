@@ -2,7 +2,6 @@ package com.devmaster.services.mapper;
 
 import com.devmaster.services.domain.Student;
 import com.devmaster.services.dto.StudentDTO;
-import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +12,10 @@ import java.util.List;
 public class StudentMapper {
     @Autowired
     private AddressMapper addressMapper;
+    @Autowired
+    private SubjectMapper subjectMapper;
+    @Autowired
+    private ClassMapper classMapper;
     public StudentDTO toDTO(Student entity){
         StudentDTO dto = StudentDTO.builder()
                 .id(entity.getId())
@@ -20,6 +23,8 @@ public class StudentMapper {
                 .lastName(entity.getLastName())
                 .fullName(entity.getLastName()+" "+entity.getFirstName())
                 .addressDTO(addressMapper.toDTO(entity.getAddress()))
+//                .subjectsDTOs(subjectMapper.toDTO(entity.getSubjects()))
+//                .classDTO(classMapper.toDTO(entity.getAClass()))
                 .build();
         return dto;
     }

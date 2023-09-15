@@ -27,6 +27,18 @@ public class StudentService {
         List<StudentDTO> students = studentMapper.toDTO(studentRepository.findByAddress(city));
         return students;
     }
+    public List<StudentDTO> findByClass(String cls){
+//        cls là class
+        List<StudentDTO> students = studentMapper.toDTO(studentRepository.findByClass(cls));
+        return students;
+    }
+    public List<StudentDTO> findBySubject(String subject){
+        List<StudentDTO> students = studentMapper.toDTO(studentRepository.findBySubject(subject));
+        return students;
+    }
+    public List<StudentDTO> filterPoint(){
+        return studentMapper.toDTO(studentRepository.filterPoint());
+    }
     public void save(StudentDTO studentDTO){
         Student student=studentMapper.toEntity((studentDTO));
         studentRepository.save(student);

@@ -14,18 +14,14 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Builder
-@Table(name = "address")
-public class Address {
+@Table(name = "class")
+public class Class {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "name")
     private String name;
-    @Column(name = "city")
-    private String city;
-    @Column(name = "district")
-    private String district;
-//    @OneToMany
-//    @JoinColumn(name = "id_address")
-//    List<Student> students = new ArrayList<>();
+    @OneToMany
+    @JoinColumn(name = "id_address")
+    List<Student> students = new ArrayList<>();
 }

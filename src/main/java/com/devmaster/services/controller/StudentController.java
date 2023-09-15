@@ -33,4 +33,16 @@ public class StudentController {
     List<StudentDTO> findByAddress(@RequestParam("city")String city){
         return studentService.findByAddress(city);
     }
+    @GetMapping("/findByClass")
+    List<StudentDTO> findByClass(@RequestParam("class")String cls){
+        return studentService.findByClass(cls);
+    }
+    @GetMapping("/findBySubject")
+    List<StudentDTO> findBySubject(@RequestParam("subject")String subject){
+        return studentService.findBySubject(subject);
+    }
+    @GetMapping("/filterPoint")
+    List<StudentDTO> filterPoint(){
+        return studentService.filterPoint();
+    }
 }
